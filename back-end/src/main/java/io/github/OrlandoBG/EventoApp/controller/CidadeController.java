@@ -1,7 +1,6 @@
 package io.github.OrlandoBG.EventoApp.controller;
 
 import io.github.OrlandoBG.EventoApp.dto.CidadeDTO;
-import io.github.OrlandoBG.EventoApp.model.entity.Cidade;
 import io.github.OrlandoBG.EventoApp.service.CidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +17,8 @@ public class CidadeController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Cidade> obter(){
-       return service.findAll();
+    public List<CidadeDTO> obter(){
+       return service.obterTodos();
 }
 
     @PostMapping

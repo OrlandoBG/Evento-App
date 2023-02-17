@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CidadeService {
@@ -16,8 +17,9 @@ public class CidadeService {
     CidadeRepository repository;
 
     @Transactional(readOnly = true)
-    public List<Cidade> findAll() {
-        return repository.findAll();
+    public List<CidadeDTO> obterTodos() {
+        List<Cidade> listaDeCidades = repository.findAll();
+        return listaDeCidades.stream().map(cidade -> new CidadeDTO(cidade)).collect(Collectors.toList());
     }
 
     @Transactional

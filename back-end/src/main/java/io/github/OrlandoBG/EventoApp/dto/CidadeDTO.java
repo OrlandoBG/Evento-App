@@ -1,21 +1,18 @@
 package io.github.OrlandoBG.EventoApp.dto;
 
 import io.github.OrlandoBG.EventoApp.model.entity.Cidade;
-import io.github.OrlandoBG.EventoApp.model.entity.Evento;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CidadeDTO {
+public class CidadeDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Long id;
 

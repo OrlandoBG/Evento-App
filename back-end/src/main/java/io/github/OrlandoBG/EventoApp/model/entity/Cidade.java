@@ -3,6 +3,7 @@ package io.github.OrlandoBG.EventoApp.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,10 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Cidade {
+
+public class Cidade implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Column
     @Setter
