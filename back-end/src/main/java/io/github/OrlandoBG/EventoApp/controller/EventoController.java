@@ -1,7 +1,6 @@
 package io.github.OrlandoBG.EventoApp.controller;
 
 import io.github.OrlandoBG.EventoApp.dto.EventoDTO;
-import io.github.OrlandoBG.EventoApp.model.entity.Evento;
 import io.github.OrlandoBG.EventoApp.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RequestMapping(value = "/api/evento")
 @RestController
 public class EventoController {

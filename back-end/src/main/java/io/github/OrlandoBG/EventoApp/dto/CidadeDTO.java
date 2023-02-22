@@ -10,12 +10,9 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CidadeDTO implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class CidadeDTO implements Serializable{
 
     private Long id;
-
     private String nome;
 
     public CidadeDTO(Cidade entity){

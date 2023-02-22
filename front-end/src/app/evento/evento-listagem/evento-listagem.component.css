@@ -1,0 +1,9 @@
+.section-container{
+    width: 100%;
+}
+
+.section-main{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+}

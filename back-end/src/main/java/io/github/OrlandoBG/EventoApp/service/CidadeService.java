@@ -24,8 +24,9 @@ public class CidadeService {
 
     @Transactional
     public CidadeDTO salvar(CidadeDTO dto) {
+        dto.setId(null);
         Cidade cidade = dtoParaCidade(dto);
-        repository.save(cidade);
+        cidade = repository.save(cidade);
         return new CidadeDTO(cidade);
     }
 

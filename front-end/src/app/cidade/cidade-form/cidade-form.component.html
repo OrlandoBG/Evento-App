@@ -1,0 +1,20 @@
+<section class="form-cidade-container">
+
+    <h1 id="title">Cadastro de Cidade</h1>
+
+    <section class="form-cidade-main">
+        <form #cidadeForm="ngForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="field" *ngIf="cidade.id">
+                <mat-label>Id: </mat-label>
+                <input type="text" [ngModel]="cidade.id" name="id" disabled="true" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="field">
+                <mat-label>Nome: </mat-label>
+                <input type="text" [(ngModel)]="cidade.nome"  name="nome" matInput placeholder="Digite o nome da cidade">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Enviar</button>
+        </form>   
+    </section>
+</section>

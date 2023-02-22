@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RequestMapping(value = "/api/cidade")
 @RestController
 public class CidadeController {
@@ -26,6 +27,4 @@ public class CidadeController {
     public CidadeDTO salvar( @RequestBody CidadeDTO dto){
         return service.salvar(dto);
     }
-
-
 }

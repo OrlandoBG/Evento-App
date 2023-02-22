@@ -1,0 +1,45 @@
+<section class="form-evento-container">
+
+
+    <h1 id="title">Cadastro de Evento</h1>
+
+
+    <section class="form-evento-main">
+        <form #eventoForm="ngForm" (ngSubmit)="Onsubmit()">
+            
+            <mat-form-field class="field" *ngIf="evento.id">
+                <mat-label>Id: </mat-label>
+                <input type="text" [ngModel]="evento.id" name="id" disabled="true" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="field">
+                <mat-label>Nome: </mat-label>
+                <input [(ngModel)]="evento.nome" name="nome" matInput placeholder="Digite o nome do evento">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="field">
+                <mat-label>Data: </mat-label>
+                <input [(ngModel)]="evento.data" type="text"  name="data" matInput placeholder="Digite a data do evento">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="field">
+                <mat-label>URL do Evento: </mat-label>
+                <input [(ngModel)]="evento.url"  name="url" matInput placeholder="Digite a url do evento">
+            </mat-form-field>
+            <br>
+            <mat-form-field >
+                <mat-label>Cidade: </mat-label>
+                <mat-select [(ngModel)]="evento.cidade.id"  [ngModelOptions]="{standalone: true}">
+
+                    <mat-option *ngFor="let cidade of cidades" class="field" [value]="cidade.id">
+                        {{cidade.nome}}
+                    </mat-option>
+                   
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary">Salvar</button>
+        </form>
+    </section>
+</section>
+

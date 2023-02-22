@@ -6,32 +6,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class EventoDTO implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     private Long id;
 
     private String nome;
 
-    private LocalDate data;
+    private String data;
 
     private String url;
 
-    private Long cidade_id;
+    private CidadeDTO cidade;
 
-    public EventoDTO(Evento entity){
+    public EventoDTO(Evento entity, String data){
         this.id = entity.getId();
         this.nome = entity.getNome();
-        this.data = entity.getData();
+        this.data = data;
         this.url = entity.getUrl();
-        this.cidade_id = entity.getCidade().getId();
+        this.cidade = new CidadeDTO(entity.getCidade());
     }
-
 
 }

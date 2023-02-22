@@ -1,5 +1,6 @@
 package io.github.OrlandoBG.EventoApp.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +17,6 @@ import java.time.LocalDate;
 
 public class Evento implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +25,7 @@ public class Evento implements Serializable {
     @Column
     private String nome;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column
     private LocalDate data;
 

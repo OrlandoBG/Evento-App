@@ -24,38 +24,43 @@ public class CidadeServiceTest {
     @Mock
     private CidadeRepository repository;
 
-    Cidade cidade;
-    CidadeDTO cidadeDTO;
-    List<CidadeDTO> cidadesDTO;
-    List<Cidade> cidades;
+    private Cidade cidade;
+    private Cidade cidadeSemId;
+    private CidadeDTO cidadeDTO;
+    private CidadeDTO cidadeDTOResposta;
+    private List<CidadeDTO> cidadesDTO;
+    private List<Cidade> cidades;
 
 
 
     @BeforeEach
     void setUp() throws Exception{
         cidadeDTO = CidadeFactory.CriarCidadeDto();
+        cidadeDTOResposta = CidadeFactory.CriarCidadeDto();
+        cidadeSemId = CidadeFactory.criarCidadeSemId();
         cidade = CidadeFactory.criarCidade();
         cidadesDTO = CidadeFactory.criarListaDeCidadesDTO();
         cidades = CidadeFactory.criarListaDeCidades();
-        Mockito.when(repository.save(cidade)).thenReturn(cidade);
+        Mockito.when(repository.save(cidadeSemId)).thenReturn(cidade);
         Mockito.when(repository.findAll()).thenReturn(cidades);
     }
 
     @Test
     public void salvarDeveriaRetornarCidadeDTO(){
 
-        CidadeDTO c = service.salvar( cidadeDTO);
+        CidadeDTO dto = service.salvar(cidadeDTO);
 
-        Assertions.assertEquals( cidadeDTO, c);
+        Assertions.assertNotNull(dto);
+        Assertions.assertEquals(cidadeDTOResposta, dto);
 
-        Mockito.verify(repository).save(cidade);
+        Mockito.verify(repository).save(cidadeSemId);
     }
 
     @Test
     public void ObterTodosDeveriaRetornarListaDeTodosOsRegistros(){
-        List<CidadeDTO> c = service.obterTodos();
+        List<CidadeDTO> dto = service.obterTodos();
 
-        Assertions.assertEquals(cidadesDTO, c);
+        Assertions.assertEquals(cidadesDTO, dto);
 
         Mockito.verify(repository).findAll();
 

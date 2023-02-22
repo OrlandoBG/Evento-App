@@ -16,8 +16,6 @@ import java.util.List;
 
 public class Cidade implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Column
     @Setter
     @Id

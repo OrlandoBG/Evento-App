@@ -16,6 +16,12 @@ public class CidadeFactory {
         return cidade;
     }
 
+    public static Cidade criarCidadeSemId(){
+        List<Evento> evento = new ArrayList<>();
+        Cidade cidade = new Cidade(null,"São Paulo", evento);
+        return cidade;
+    }
+
     public static CidadeDTO CriarCidadeDto(){
         CidadeDTO dto = new CidadeDTO(criarCidade());
         return dto;

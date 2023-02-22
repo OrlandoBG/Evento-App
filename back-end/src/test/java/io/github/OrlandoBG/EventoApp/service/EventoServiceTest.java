@@ -33,18 +33,22 @@ public class EventoServiceTest {
 
     private EventoDTO eventoDTO;
     private Evento evento;
+    private Evento eventoSemId;
     private PageImpl<Evento> pagina;
     private PageImpl<EventoDTO> paginaDTO;
+    private EventoDTO eventoDTOResposta;
 
 
     @BeforeEach
     void setUp() throws Exception{
 
+        eventoDTOResposta = EventoFactory.criarEventoDTO();
         eventoDTO = EventoFactory.criarEventoDTO();
         evento = EventoFactory.criarEvento();
+        eventoSemId = EventoFactory.criarEventoSemId();
         pagina = new PageImpl<>(List.of(evento));
         paginaDTO = new PageImpl<>(List.of(eventoDTO));
-        Mockito.when(repository.save(evento)).thenReturn(evento);
+        Mockito.when(repository.save(eventoSemId)).thenReturn(evento);
         Mockito.when(repository.obterTodos((Cidade)ArgumentMatchers.any(),(Pageable)ArgumentMatchers.any())).thenReturn(pagina);
     }
 
@@ -61,9 +65,9 @@ public class EventoServiceTest {
 
         EventoDTO e = service.salvar(eventoDTO);
 
-        Assertions.assertEquals(eventoDTO, e);
+        Assertions.assertEquals(eventoDTOResposta, e);
 
-        Mockito.verify(repository).save(evento);
+        Mockito.verify(repository).save(eventoSemId);
     }
 
 
