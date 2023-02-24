@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Evento } from './evento/evento';
+import { PaginaContato } from './evento/paginaContato';
 
 
 @Injectable({
@@ -18,8 +19,14 @@ export class EventoService {
     return this.http.post<Evento>(this.url, evento);
   }
 
-  obter(): Observable<any>{
-    return this.http.get<any>(this.url);
+  obter(cidade_id: number, pagina: number, tamanho: number): Observable<PaginaContato>{
+    const httpParams = new HttpParams()
+    .set("cidadeId", cidade_id ? cidade_id.toString() : "")
+    .set("page", pagina ? pagina.toString() : "0")
+    .set("size", tamanho.toString());
+    const url = this.url + '?' + httpParams.toString(); 
+    
+    return this.http.get<any>(url);
   }
 
 }

@@ -54,8 +54,8 @@ public class EventoServiceTest {
 
     @Test
     public void obterTodosDeveriaRetornarPaginaDeEventos(){
-        Pageable pageable = PageRequest.of(0,10);
-        Page<EventoDTO> paginaDeEventos =  service.obterTodos(0L, pageable);
+        PageRequest pageRequest = PageRequest.of(0,10);
+        Page<EventoDTO> paginaDeEventos =  service.obterTodos(0L, pageRequest);
         Assertions.assertNotNull(paginaDeEventos);
         Assertions.assertEquals(paginaDTO, paginaDeEventos);
     }

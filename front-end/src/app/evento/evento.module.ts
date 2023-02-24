@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { EventoListagemComponent } from './evento-listagem/evento-listagem.component';
 
@@ -24,8 +26,10 @@ import { EventoListagemComponent } from './evento-listagem/evento-listagem.compo
     EventoRoutingModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatPaginatorModule,
     MatInputModule,
     MatSelectModule,
+    MatCardModule,
     MatTableModule,
     FormsModule
   ],

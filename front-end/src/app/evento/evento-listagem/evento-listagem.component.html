@@ -1,42 +1,66 @@
 <section class="section-container">
 
-
-   
-
     <section class="section-main">
-     
-        <table mat-table [dataSource]="eventos" >
 
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef>ID</th>
-                <td mat-cell *matCellDef="let evento">{{evento.id}}</td>
-            </ng-container>
+        <mat-card class="mat-card">
+            <div class="filtroCidade-container">
+                <h3>Filtro de cidade</h3>
+                    <mat-form-field >
+                        <mat-label>Cidade: </mat-label>
+                        <mat-select  (selectionChange)="onCidadeChange($event)">
 
-            <ng-container matColumnDef="nome">
-                <th mat-header-cell *matHeaderCellDef>Nome do Evento</th>
-                <td mat-cell *matCellDef="let evento">{{evento.nome}}</td>
-            </ng-container>
+                            <mat-option  class="field" [value]="0">
+                                Nenhum
+                            </mat-option>
 
-            <ng-container matColumnDef="data">
-                <th mat-header-cell *matHeaderCellDef>Data do Evento</th>
-                <td mat-cell *matCellDef="let evento">{{evento.data}}</td>
-            </ng-container>
+                            <mat-option *ngFor="let cidade of cidades" class="field" [value]="cidade.id">
+                                {{cidade.nome}}
+                            </mat-option>  
+                        </mat-select>
+                    </mat-form-field>
+            </div>
+        </mat-card>
+        <mat-card>
+            <table mat-table [dataSource]="eventos" >
 
-            <ng-container matColumnDef="url">
-                <th mat-header-cell *matHeaderCellDef>Url do Evento</th>
-                <td mat-cell *matCellDef="let evento">{{evento.url}}</td>
-            </ng-container>
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let evento">{{evento.id}}</td>
+                </ng-container>
 
-            <ng-container matColumnDef="cidade">
-                <th mat-header-cell *matHeaderCellDef>Cidade do Evento</th>
-                <td mat-cell *matCellDef="let evento">{{evento.cidade.nome}}</td>
-            </ng-container>
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef>Nome do Evento</th>
+                    <td mat-cell *matCellDef="let evento">{{evento.nome}}</td>
+                </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="colunas"></tr>
-            <tr mat-row *matRowDef="let myRowData; columns: colunas"></tr>
+                <ng-container matColumnDef="data">
+                    <th mat-header-cell *matHeaderCellDef>Data do Evento</th>
+                    <td mat-cell *matCellDef="let evento">{{evento.data}}</td>
+                </ng-container>
 
+                <ng-container matColumnDef="url">
+                    <th mat-header-cell *matHeaderCellDef>Url do Evento</th>
+                    <td mat-cell *matCellDef="let evento">{{evento.url}}</td>
+                </ng-container>
 
-        </table>
+                <ng-container matColumnDef="cidade">
+                    <th mat-header-cell *matHeaderCellDef>Cidade do Evento</th>
+                    <td mat-cell *matCellDef="let evento">{{evento.cidade.nome}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+                <tr mat-row *matRowDef="let myRowData; columns: colunas"></tr>
+
+            </table>
+        </mat-card>
+
+        <mat-paginator [length]="totalElementos"
+        [pageSize]="tamanho"
+        showFirstLastButtons
+        (page)="paginar($event)">
+
+        </mat-paginator>
+    
 
     </section>
 

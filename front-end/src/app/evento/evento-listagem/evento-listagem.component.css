@@ -7,3 +7,22 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.filtroCidade-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.mat-card{
+    margin: 20px 0px;
+}
+
+

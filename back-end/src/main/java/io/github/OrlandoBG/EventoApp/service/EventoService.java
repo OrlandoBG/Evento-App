@@ -8,6 +8,7 @@ import io.github.OrlandoBG.EventoApp.model.repository.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Service;
@@ -27,9 +28,9 @@ public class EventoService {
     private CidadeRepository cidadeRepository;
 
     @Transactional(readOnly = true)
-    public Page<EventoDTO> obterTodos(Long cidadeId, Pageable pageable){
+    public Page<EventoDTO> obterTodos(Long cidadeId, PageRequest pageRequest){
         Cidade cidade = (cidadeId == 0) ? null  : cidadeRepository.getOne(cidadeId);
-        Page<Evento> paginaDeEventos = repository.obterTodos(cidade,pageable);
+        Page<Evento> paginaDeEventos = repository.obterTodos(cidade,pageRequest);
         return paginaDeEventos.map(evento -> new EventoDTO(evento, evento.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
     }
 

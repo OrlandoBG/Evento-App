@@ -22,10 +22,6 @@ export class EventoFormComponent {
                       .subscribe(response =>{
                         this.cidades = response;
                       });
-
-    this.eventoService.obter().subscribe(response =>{
-      console.log(response);
-    });
   }
 
   Onsubmit(){

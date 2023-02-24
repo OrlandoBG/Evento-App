@@ -4,6 +4,7 @@ import io.github.OrlandoBG.EventoApp.dto.EventoDTO;
 import io.github.OrlandoBG.EventoApp.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +19,11 @@ public class EventoController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public Page<EventoDTO> obterTodos(Pageable pageable,
+    public Page<EventoDTO> obterTodos(@RequestParam(value="page", defaultValue = "0") Integer page,
+                                      @RequestParam(value="size", defaultValue = "0") Integer size,
                                    @RequestParam(value="cidadeId", defaultValue = "0")Long cidadeId){
-        return service.obterTodos(cidadeId,pageable);
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return service.obterTodos(cidadeId,pageRequest);
 
     }
 
