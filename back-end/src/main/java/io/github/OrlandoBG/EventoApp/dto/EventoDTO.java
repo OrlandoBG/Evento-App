@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 
@@ -15,12 +17,16 @@ public class EventoDTO implements Serializable {
 
     private Long id;
 
+    @NotEmpty(message = "{evento.nome.obrigatorio}")
     private String nome;
 
+    @NotEmpty(message = "{evento.data.obrigatorio}")
     private String data;
 
+    @NotEmpty(message = "{evento.url.obrigatorio}")
     private String url;
 
+    @Valid
     private CidadeDTO cidade;
 
     public EventoDTO(Evento entity, String data){

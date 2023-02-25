@@ -23,7 +23,7 @@ public class Cidade implements Serializable {
     private Long id;
 
     @Setter
-    @Column
+    @Column(unique = true)
     private String nome;
 
     @OneToMany(mappedBy = "cidade")

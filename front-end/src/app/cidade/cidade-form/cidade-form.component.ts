@@ -11,7 +11,9 @@ import { Cidade } from '../cidade';
 export class CidadeFormComponent {
 
   cidade: Cidade = new Cidade();
-
+  errors: string[] =[];
+  message: string = "";
+  success: boolean = false;
   
   constructor(private service: CidadeService){ }
 
@@ -19,7 +21,15 @@ export class CidadeFormComponent {
    
     this.service.salvar(this.cidade)
                 .subscribe(response =>{
-                  this.cidade = response;  
+                  this.cidade = response;
+                  this.errors=[]; 
+                  this.message = '';
+                  this.success = true;
+                }, errorResponse=>{
+                  console.log(errorResponse);
+                  this.errors = errorResponse.error.errors;
+                  this.message = errorResponse.error.message;
+                  this.success = false;
                 });
   }
 

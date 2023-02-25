@@ -13,6 +13,8 @@ export class EventoFormComponent {
 
   evento: Evento = new Evento();
   cidades: Cidade[] = [];
+  errors: string[] = [];
+  success: boolean = false;
 
   constructor(private cidadeService: CidadeService, private eventoService: EventoService){}
 
@@ -25,11 +27,14 @@ export class EventoFormComponent {
   }
 
   Onsubmit(){
-    console.log(this.evento);
     this.eventoService.salvar(this.evento)
                       .subscribe(response =>{
-                        console.log(response);
                         this.evento = response;
+                        this.errors = [];
+                        this.success = true;
+                      }, errorResponse=>{
+                       this.errors = errorResponse.error.errors;
+                       this.success = false;
                       });
   }
 

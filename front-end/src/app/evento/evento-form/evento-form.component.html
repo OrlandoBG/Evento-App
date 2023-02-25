@@ -2,6 +2,18 @@
 
         <h1 id="title">Cadastro de Evento</h1>
 
+        <div class="success" *ngIf="success">
+            <mat-card class="mat-card-success">
+                <p class="menssageSuccess">Sucesso ao cadastrar cidade</p>
+            </mat-card>
+        </div>
+
+        <div class="error">
+            <mat-card  *ngFor="let error of errors" class="mat-card-error">
+                <p class="menssageError">{{error}}</p>
+            </mat-card>
+        </div>
+
     <section class="form-evento-main">
         <form #eventoForm="ngForm" (ngSubmit)="Onsubmit()">
             
@@ -9,27 +21,28 @@
                 <mat-label>Id: </mat-label>
                 <input type="text" [ngModel]="evento.id" name="id" disabled="true" matInput>
             </mat-form-field>
+            <br>
 
             <mat-form-field class="field">
-                <mat-label>Nome: </mat-label>
+                <mat-label>Evento: </mat-label>
                 <input [(ngModel)]="evento.nome" name="nome" matInput placeholder="Digite o nome do evento">
             </mat-form-field>
             <br>
             <mat-form-field class="field">
                 <mat-label>Data: </mat-label>
-                <input [(ngModel)]="evento.data" type="text"  name="data" matInput placeholder="Digite a data do evento">
+                <input [(ngModel)]="evento.data" type="text"  name="data" matInput placeholder="Digite a data do evento (dd/MM/yyyy)">
             </mat-form-field>
             <br>
             <mat-form-field class="field">
-                <mat-label>URL do Evento: </mat-label>
+                <mat-label>URL: </mat-label>
                 <input [(ngModel)]="evento.url"  name="url" matInput placeholder="Digite a url do evento">
             </mat-form-field>
             <br>
             <mat-form-field >
                 <mat-label>Cidade: </mat-label>
-                <mat-select [(ngModel)]="evento.cidade.id"  [ngModelOptions]="{standalone: true}">
+                <mat-select [(ngModel)]="evento.cidade"  [ngModelOptions]="{standalone: true}">
 
-                    <mat-option *ngFor="let cidade of cidades" class="field" [value]="cidade.id">
+                    <mat-option *ngFor="let cidade of cidades" class="field" [value]="cidade">
                         {{cidade.nome}}
                     </mat-option>
                    

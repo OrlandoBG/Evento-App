@@ -1,7 +1,20 @@
 <section class="form-cidade-container">
 
     <h1 id="title">Cadastro de Cidade</h1>
+    <div class="success" *ngIf="success">
+        <mat-card class="mat-card-success">
+            <p class="menssageSuccess">Sucesso ao cadastrar cidade</p>
+        </mat-card>
+    </div>
+    <div class="error">
+        <mat-card  *ngIf="message" class="mat-card-error">
+            <p class="menssageError">{{message}}</p>
+        </mat-card>
 
+        <mat-card  *ngFor="let error of errors" class="mat-card-error">
+            <p class="menssageError">{{error}}</p>
+        </mat-card>
+    </div>
     <section class="form-cidade-main">
         <form #cidadeForm="ngForm" (ngSubmit)="onSubmit()">
             <mat-form-field class="field" *ngIf="cidade.id">
@@ -10,7 +23,7 @@
             </mat-form-field>
             <br>
             <mat-form-field class="field">
-                <mat-label>Nome: </mat-label>
+                <mat-label>Cidade: </mat-label>
                 <input type="text" [(ngModel)]="cidade.nome"  name="nome" matInput placeholder="Digite o nome da cidade">
             </mat-form-field>
 

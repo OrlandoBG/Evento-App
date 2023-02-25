@@ -3,7 +3,9 @@ package io.github.OrlandoBG.EventoApp.service;
 import io.github.OrlandoBG.EventoApp.dto.CidadeDTO;
 import io.github.OrlandoBG.EventoApp.model.entity.Cidade;
 import io.github.OrlandoBG.EventoApp.model.repository.CidadeRepository;
+import io.github.OrlandoBG.EventoApp.service.exception.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,10 +26,14 @@ public class CidadeService {
 
     @Transactional
     public CidadeDTO salvar(CidadeDTO dto) {
-        dto.setId(null);
-        Cidade cidade = dtoParaCidade(dto);
-        cidade = repository.save(cidade);
-        return new CidadeDTO(cidade);
+        try {
+            dto.setId(null);
+            Cidade cidade = dtoParaCidade(dto);
+            cidade = repository.save(cidade);
+            return new CidadeDTO(cidade);
+        }catch (DataIntegrityViolationException e){
+        throw new DatabaseException("Cidade já cadastrada");
+        }
     }
 
     public  Cidade dtoParaCidade(CidadeDTO dto){

@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-@CrossOrigin("*")
+
 @RequestMapping(value = "/api/cidade")
 @RestController
 public class CidadeController {
@@ -24,7 +25,7 @@ public class CidadeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CidadeDTO salvar( @RequestBody CidadeDTO dto){
-        return service.salvar(dto);
+    public CidadeDTO salvar( @Valid @RequestBody CidadeDTO dto){
+            return service.salvar(dto);
     }
 }
