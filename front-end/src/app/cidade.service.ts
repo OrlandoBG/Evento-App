@@ -9,7 +9,7 @@ import { Cidade } from './cidade/cidade';
 })
 export class CidadeService {
 
-  url: string = environment.apiUrl + '/api/cidade';
+  url: string = environment.apiUrl + '/api/cidades';
 
   constructor(private http: HttpClient) {}
 

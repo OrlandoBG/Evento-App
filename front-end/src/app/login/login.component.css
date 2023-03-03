@@ -1,11 +1,16 @@
-.form-cidade-container{
+.section-container{
     width: 100%;
 }
 
-.form-cidade-main{
+.section-main{
     margin: 0 auto;
     width: 100%;
     max-width: 960px;
+}
+
+
+.full-width{
+    width: 100%;
 }
 
 #title{
@@ -14,14 +19,16 @@
     margin: 15px 0px;
 }
 
-.field{
-    width: 100%;
+.cadastrar{
+    margin-top: 150px;
 }
 
 .mat-card-error{
     background-color: rgb(255, 63, 63);
     color: white;
     border: 1px solid black;
+    margin-left: 3px;
+    margin-top: 3px;
 }
 
 .error{
@@ -51,3 +58,4 @@
 .menssageSuccess{
     margin: 0 3px;
 }
+

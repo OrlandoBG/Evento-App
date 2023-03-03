@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RequestMapping(value = "/api/evento")
+@RequestMapping(value = "/api/eventos")
 @RestController
 public class EventoController {
 

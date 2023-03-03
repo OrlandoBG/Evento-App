@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 
-@RequestMapping(value = "/api/cidade")
+@RequestMapping(value = "/api/cidades")
 @RestController
 public class CidadeController {
 

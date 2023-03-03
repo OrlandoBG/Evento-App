@@ -11,7 +11,7 @@ import { PaginaContato } from './evento/paginaContato';
 })
 export class EventoService {
 
-  url: string  = environment.apiUrl + '/api/evento';
+  url: string  = environment.apiUrl + '/api/eventos';
 
   constructor(private http: HttpClient) { }
 

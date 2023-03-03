@@ -1,0 +1,56 @@
+<section class="section-container">
+
+    <section class="section-main">
+
+         
+            <h1 id="title">{{ cadastrando ? 'Cadastro de Novo Usuário' : 'Entrar' }}</h1>
+        
+            <div class="success" *ngIf="mensagemSucesso">
+                <mat-card class="mat-card-success">
+                    <p class="menssageSuccess">{{mensagemSucesso}}</p>
+                </mat-card>
+            </div>
+
+            <div class="error">
+                <mat-card  *ngIf="message" class="mat-card-error">
+                    <p class="menssageError">{{message}}</p>
+                </mat-card>
+               
+                <mat-card  *ngFor="let error of errors" class="mat-card-error">
+                    <p class="menssageError">{{error}}</p>
+                </mat-card>
+            </div>
+        
+            <form #usuarioForm="ngForm" (ngSubmit)="onSubmit()">
+                <br>
+                <mat-form-field class="full-width">
+                    <mat-label>Email: </mat-label>
+                    <input type="text" [(ngModel)]="username" name="username" placeholder="Digite seu email" matInput >
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Senha: </mat-label>
+                    <input type="password" [(ngModel)]="password" name="password" placeholder="Digite sua senha" matInput class="full-width">
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" *ngIf="!cadastrando">Enviar</button>
+
+                <button type="button"  mat-raised-button color="primary" *ngIf="cadastrando" (click)="cadastrar()">
+                    Cadastrar
+                </button>
+
+                <button type="button" (click)="cancelaCadastro()" mat-raised-button color="warn" style="margin-left: 3px;" *ngIf="cadastrando">
+                    Cancelar
+                 </button>
+
+            </form>
+
+            <div class="cadastrar">
+                <a href="" (click)="preparaCadastrar($event)">
+                    Não possui Usuário? Cadastre-se!
+                </a>
+            </div>
+
+    </section>
+</section>

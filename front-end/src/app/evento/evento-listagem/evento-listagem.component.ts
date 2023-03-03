@@ -20,8 +20,8 @@ export class EventoListagemComponent {
 
   totalElementos: number = 0;
   pagina: number = 0;
-  tamanho: number = 5;
-  pageSizeOptions: number[] = [5];
+  tamanho: number = 10;
+  pageSizeOptions: number[] = [10];
 
   constructor(private service: EventoService, private cidadeService: CidadeService){}
 
