@@ -37,6 +37,10 @@ export class AuthService {
     return this.http.post(this.tokenURL, params.toString(),{ headers });
   }
 
+  encerrarSessao(){
+    localStorage.removeItem('access_token');
+  }
+
   obterToken(){
     const tokenString = localStorage.getItem('access_token');
     if(tokenString){

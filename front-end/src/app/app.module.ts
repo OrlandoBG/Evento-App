@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TemplateModule } from './template/template.module';
 import { CidadeModule } from './cidade/cidade.module';
@@ -20,11 +21,13 @@ import { CidadeService } from './cidade.service';
 import { LoginComponent } from './login/login.component';
 
 import { TokenInterceptor } from './token.interceptor';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { TokenInterceptor } from './token.interceptor';
     FormsModule,
     MatInputModule,
     MatCardModule,
+    MatIconModule,
     CidadeModule,
     EventoModule,
     HttpClientModule,

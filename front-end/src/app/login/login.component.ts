@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Usuario } from './usuario';
 
@@ -17,7 +18,7 @@ export class LoginComponent {
   errors: String[] = [];
   message: string = "";
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   onSubmit(){
 
@@ -25,6 +26,7 @@ export class LoginComponent {
                 .subscribe(response =>{
                   const access_token = JSON.stringify(response);
                   localStorage.setItem('access_token', access_token);
+                  this.router.navigate(['/home']);
                 }, errorResponse =>{
                   this.errors = ['Usuário e/ou senha incorretos'];
                 });

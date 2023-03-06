@@ -4,10 +4,31 @@
     margin: 0 auto;
     color: white;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header{
     background-color: rgb(56, 49, 49);
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+.menu-items{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-transform: uppercase;
+}
+
+.menu-items li{
+    margin: 15px 10px 10px 10px;
+    font-size: 14px;
 }
 
 

@@ -1,5 +1,11 @@
 <mat-toolbar class="header">
     <nav class="nav-main">
-        <h1>Evento APP</h1>
+        <h1 style="margin-bottom: 0px;">Evento APP</h1>
+        <ul class="menu-items">
+            <li><a class="link" routerLink="/evento-listagem">Eventos</a></li>
+            <li><a class="link" routerLink="/cidade-listagem">Cidades</a></li>
+            <li><a class="link" routerLink="/login">Login</a></li>
+            <li><a class="link" href="#" (click)="logout()">Logout</a></li>
+        </ul>
     </nav>
 </mat-toolbar>
