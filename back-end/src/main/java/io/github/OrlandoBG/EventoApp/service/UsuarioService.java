@@ -24,7 +24,7 @@ public class UsuarioService implements UserDetailsService {
     public Usuario salvar(Usuario usuario){
         boolean exists = repository.existsByUsername(usuario.getUsername());
         if(exists) {
-            throw new DatabaseException("Usuário: " + usuario.getUsername() + " Já está cadastrado");
+            throw new DatabaseException("Usuário: " + usuario.getUsername() + " Já está cadastrado.");
         }
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return repository.save(usuario);
@@ -40,7 +40,7 @@ public class UsuarioService implements UserDetailsService {
             logger.error("Usuario não encontrado: " + username);
             throw new UsernameNotFoundException("Email não encontrado");
         }
-        logger.info("Usuario não encontrado: " + username);
+        logger.info("Usuario encontrado: " + username);
 
         return User
                 .builder()

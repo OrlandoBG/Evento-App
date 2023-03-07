@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +28,5 @@ public class Usuario {
     @NotEmpty(message = "{usuario.senha.obrigatorio}")
     @Column(name = "senha")
     private String password;
+
 }

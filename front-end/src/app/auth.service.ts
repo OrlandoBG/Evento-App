@@ -50,32 +50,12 @@ export class AuthService {
     return null; 
   }
 
-  getUsuarioAutenticado(){
-    const token = this.obterToken();
-    if(token){
-      const usuario = this.jwtHelper.decodeToken(token).user_name;
-      return usuario;
-    }
-    return null;
-  }
-
   isRoleClient(){
     const token = this.obterToken();
     if(token){
       const role = this.jwtHelper.decodeToken(token).authorities[0];
-      if(role == 'ROLE_CLIENT'){
-        return true;
-      }
-      return false;
-    }
-    return null;
-  }
 
-  isRoleAdmin(){
-    const token = this.obterToken();
-    if(token){
-      const role = this.jwtHelper.decodeToken(token).authorities[0];
-      if(role == 'ROLE_ADMIN'){
+      if(role == 'ROLE_CLIENT'){
         return true;
       }
       return false;

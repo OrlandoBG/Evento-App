@@ -26,7 +26,7 @@ public class ResourceServer extends ResourceServerConfigurerAdapter {
             resources.tokenStore(tokenStore);
         }
 
-        private static final String[] PUBLIC = { "/oauth/token", "/h2-console/**","/api/cidades/**", "/api/eventos/**", };
+        private static final String[] PUBLIC = { "/oauth/token", "/h2-console/**","/api/cidades/**", "/api/eventos/**"};
         private static final String[] CLIENT_POST = {"/api/eventos/**","/api/cidades/**"};
         public void configure(HttpSecurity http) throws Exception {
 
