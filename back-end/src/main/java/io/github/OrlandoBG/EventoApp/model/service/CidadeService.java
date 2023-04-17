@@ -1,9 +1,9 @@
-package io.github.OrlandoBG.EventoApp.service;
+package io.github.OrlandoBG.EventoApp.model.service;
 
-import io.github.OrlandoBG.EventoApp.dto.CidadeDTO;
+import io.github.OrlandoBG.EventoApp.controller.dto.CidadeDTO;
 import io.github.OrlandoBG.EventoApp.model.entity.Cidade;
 import io.github.OrlandoBG.EventoApp.model.repository.CidadeRepository;
-import io.github.OrlandoBG.EventoApp.service.exception.DatabaseException;
+import io.github.OrlandoBG.EventoApp.model.service.exception.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;

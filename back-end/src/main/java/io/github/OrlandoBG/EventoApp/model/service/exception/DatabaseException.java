@@ -1,4 +1,4 @@
-package io.github.OrlandoBG.EventoApp.service.exception;
+package io.github.OrlandoBG.EventoApp.model.service.exception;
 
 public class DatabaseException extends RuntimeException{
 

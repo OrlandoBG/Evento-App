@@ -1,8 +1,8 @@
-package io.github.OrlandoBG.EventoApp.service;
+package io.github.OrlandoBG.EventoApp.model.service;
 
 import io.github.OrlandoBG.EventoApp.model.entity.Usuario;
 import io.github.OrlandoBG.EventoApp.model.repository.UsuarioRepository;
-import io.github.OrlandoBG.EventoApp.service.exception.DatabaseException;
+import io.github.OrlandoBG.EventoApp.model.service.exception.DatabaseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -16,6 +16,7 @@ export class AuthService {
   clientID: string = environment.clientId;
   clientSecret: string = environment.clientSecret;
   jwtHelper: JwtHelperService = new JwtHelperService();
+  role: string[]= [];
 
   constructor(private http: HttpClient) { }
 
@@ -52,13 +53,15 @@ export class AuthService {
 
   isRoleClient(){
     const token = this.obterToken();
+    
     if(token){
-      const role = this.jwtHelper.decodeToken(token).authorities[0];
-
-      if(role == 'ROLE_CLIENT'){
+      this.role = this.jwtHelper.decodeToken(token).authorities;
+      for(let i =0; i< this.role.length; i++){
+      if(this.role[i] == 'ROLE_CLIENT'){
         return true;
       }
       return false;
+      }
     }
     return null;
   }

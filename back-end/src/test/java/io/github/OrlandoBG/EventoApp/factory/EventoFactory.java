@@ -1,7 +1,7 @@
 package io.github.OrlandoBG.EventoApp.factory;
 
-import io.github.OrlandoBG.EventoApp.dto.CidadeDTO;
-import io.github.OrlandoBG.EventoApp.dto.EventoDTO;
+import io.github.OrlandoBG.EventoApp.controller.dto.CidadeDTO;
+import io.github.OrlandoBG.EventoApp.controller.dto.EventoDTO;
 import io.github.OrlandoBG.EventoApp.model.entity.Cidade;
 import io.github.OrlandoBG.EventoApp.model.entity.Evento;
 

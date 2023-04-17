@@ -1,6 +1,6 @@
 package io.github.OrlandoBG.EventoApp.controller.exception;
 
-import io.github.OrlandoBG.EventoApp.service.exception.DatabaseException;
+import io.github.OrlandoBG.EventoApp.model.service.exception.DatabaseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

@@ -1,10 +1,8 @@
 package io.github.OrlandoBG.EventoApp.controller;
 
 import io.github.OrlandoBG.EventoApp.model.entity.Usuario;
-import io.github.OrlandoBG.EventoApp.service.UsuarioService;
-import io.github.OrlandoBG.EventoApp.service.exception.DatabaseException;
+import io.github.OrlandoBG.EventoApp.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

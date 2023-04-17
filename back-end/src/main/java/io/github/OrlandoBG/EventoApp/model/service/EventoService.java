@@ -1,6 +1,6 @@
-package io.github.OrlandoBG.EventoApp.service;
+package io.github.OrlandoBG.EventoApp.model.service;
 
-import io.github.OrlandoBG.EventoApp.dto.EventoDTO;
+import io.github.OrlandoBG.EventoApp.controller.dto.EventoDTO;
 import io.github.OrlandoBG.EventoApp.model.entity.Cidade;
 import io.github.OrlandoBG.EventoApp.model.entity.Evento;
 import io.github.OrlandoBG.EventoApp.model.repository.CidadeRepository;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

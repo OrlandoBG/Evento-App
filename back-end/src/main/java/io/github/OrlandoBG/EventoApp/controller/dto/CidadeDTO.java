@@ -1,4 +1,4 @@
-package io.github.OrlandoBG.EventoApp.dto;
+package io.github.OrlandoBG.EventoApp.controller.dto;
 
 
 import io.github.OrlandoBG.EventoApp.model.entity.Cidade;

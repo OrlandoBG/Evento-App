@@ -1,9 +1,10 @@
 package io.github.OrlandoBG.EventoApp.service;
 
-import io.github.OrlandoBG.EventoApp.dto.CidadeDTO;
+import io.github.OrlandoBG.EventoApp.controller.dto.CidadeDTO;
 import io.github.OrlandoBG.EventoApp.model.entity.Cidade;
 import io.github.OrlandoBG.EventoApp.model.repository.CidadeRepository;
 import io.github.OrlandoBG.EventoApp.factory.CidadeFactory;
+import io.github.OrlandoBG.EventoApp.model.service.CidadeService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
