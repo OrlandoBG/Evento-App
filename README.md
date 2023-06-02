@@ -15,6 +15,4 @@ O Evento-app é um sistema de gerenciamento de cidade e eventos. Com essa plataf
 # Tecnologias 
 Tecnologias utilizadas: Java, Spring framework, JPA, Git, Rest APIs, Postman, PostgreSQL, Oauth2, JWT, TypeScript, Angular, HTML, CSS.
 
-# Diagrama de classes
-![image](https://github.com/OrlandoBG/Evento-App/assets/75863232/dcc9f200-0d76-4834-af35-3690e205dc17)
 
